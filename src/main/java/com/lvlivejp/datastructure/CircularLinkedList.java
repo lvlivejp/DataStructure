@@ -1,7 +1,5 @@
 package com.lvlivejp.datastructure;
 
-import java.util.Random;
-
 public class CircularLinkedList<E> {
 
     // 保存链表中第一个节点
