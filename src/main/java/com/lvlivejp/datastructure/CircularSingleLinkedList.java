@@ -84,6 +84,12 @@ public class CircularSingleLinkedList<E> {
 
     }
 
+    /**
+     * 约瑟夫环，可以随机生成下一个数字
+     * @param length
+     * @param cnt
+     * @param isChangeCnt
+     */
     private static void JosephusExplain(int length,int cnt,boolean isChangeCnt) {
         CircularSingleLinkedList<Integer> circularLinkedList = new CircularSingleLinkedList<Integer>();
         for (int i = 1; i <= length; i++) {

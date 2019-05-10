@@ -56,6 +56,10 @@ public class CircularDoubleLinkedList<E> {
 
     }
 
+    /**
+     * 用双向循环链表实现左右移动26个字母
+     * @param cnt
+     */
     private static void moveEnglishLetter(int cnt) {
         CircularDoubleLinkedList<Character> doubleLinkedList = new CircularDoubleLinkedList<Character>();
         for (int i = 0; i < 26; i++) {
