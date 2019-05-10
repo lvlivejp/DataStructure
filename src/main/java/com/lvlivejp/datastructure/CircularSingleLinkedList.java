@@ -1,6 +1,6 @@
 package com.lvlivejp.datastructure;
 
-public class CircularLinkedList<E> {
+public class CircularSingleLinkedList<E> {
 
     // 保存链表中第一个节点
     transient Node<E> first;
@@ -85,7 +85,7 @@ public class CircularLinkedList<E> {
     }
 
     private static void JosephusExplain(int length,int cnt,boolean isChangeCnt) {
-        CircularLinkedList<Integer> circularLinkedList = new CircularLinkedList<Integer>();
+        CircularSingleLinkedList<Integer> circularLinkedList = new CircularSingleLinkedList<Integer>();
         for (int i = 1; i <= length; i++) {
             circularLinkedList.add(i);
         }
