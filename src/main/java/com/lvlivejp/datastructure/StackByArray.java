@@ -55,16 +55,25 @@ public class StackByArray<E> {
         return (E) objects[top];
     }
     public static void main(String[] args) throws ScriptException {
-        StackByArray<Character> stackByArray = new StackByArray<>(10);
-        String temp ;
-        temp = "1+2+2*((3+5*2)+2)/5*2*3*4*6/3*2*3*(4/2+3)+3*2";
+        String equation ;
+        equation = "1+2+2*((3+5*2)+2)/5*2*3*4*6/3*2*3*(4/2+3)+3*2";
 //      temp = "6/3*2+1+2";
         ScriptEngineManager manager = new ScriptEngineManager();
         ScriptEngine engine = manager.getEngineByName( "JavaScript" );
-        System.out.println("JavaScript:"+engine.eval(temp));
+        System.out.println("JavaScript:"+engine.eval(equation));
+        String[] rpns = MidToRight(equation);
+        System.out.println(RPN(rpns));
+    }
+
+    /**
+     * 中缀表达式变后缀表达式
+     * @param equation
+     */
+    private static String[] MidToRight(String equation) {
+        StackByArray<Character> stackByArray = new StackByArray<>(10);
         String num="";
         List<String> rpn = new ArrayList<String>();
-        char[] chars = temp.toCharArray();
+        char[] chars = equation.toCharArray();
         for (char a : chars) {
             // 如果是数字，就继续下一次循环，拼接两位数以上的数字
             if(a>=48 && a<=57){
@@ -97,7 +106,7 @@ public class StackByArray<E> {
                 }
                 stackByArray.push(a);
             }else if(a == '+' || a=='-'){
-                //加法减法时，操作符出栈，直到为空或遇到左括号
+                //加法减法时，优先级最低，所以所有操作符出栈，直到为空或遇到左括号
                 while(true){
                     if(stackByArray.peek() == null || stackByArray.peek() == '('){
                         break;
@@ -116,7 +125,7 @@ public class StackByArray<E> {
             rpn.add(String.valueOf(c));
             System.out.println(c);
         }
-        RPN(rpn.toArray(new String[rpn.size()]));
+        return rpn.toArray(new String[rpn.size()]);
     }
 
 
@@ -124,11 +133,14 @@ public class StackByArray<E> {
      * 逆波兰表达式计算
      * @param express
      */
-    private static void RPN(String[] express) {
+    private static String RPN(String[] express) {
         StackByArray<String> stackByArray = new StackByArray<>(10);
         Arrays.stream(express).forEach((e)->{
             String second,first;
             if(StringUtils.contains("+-*/",e)){
+                /**
+                 * 遇到运算符号，取出栈顶两个数字，进行运算，将运算结果入栈
+                 */
                 second = stackByArray.pop();
                 first = stackByArray.pop();
                 switch (e){
@@ -150,6 +162,6 @@ public class StackByArray<E> {
             }
 
         });
-        System.out.println(stackByArray.pop());
+        return stackByArray.pop();
     }
 }
