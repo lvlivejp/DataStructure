@@ -1,4 +1,4 @@
-package com.lvlivejp.datastructure;
+package com.lvlivejp.datastructure.recursive;
 
 /**
  * 递归二分法查找

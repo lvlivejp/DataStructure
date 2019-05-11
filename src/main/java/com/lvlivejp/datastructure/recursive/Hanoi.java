@@ -1,4 +1,4 @@
-package com.lvlivejp.datastructure;
+package com.lvlivejp.datastructure.recursive;
 
 /**
  * 汉诺塔递归

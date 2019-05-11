@@ -1,5 +1,9 @@
-package com.lvlivejp.datastructure;
+package com.lvlivejp.datastructure.linearlist;
 
+/**
+ * 循环单链表实现约瑟夫环，可以随机生成下一个数字
+ * @param <E>
+ */
 public class CircularSingleLinkedList<E> {
 
     // 保存链表中第一个节点
@@ -104,8 +108,10 @@ public class CircularSingleLinkedList<E> {
             deleteNode = node.next;
             System.out.println(deleteNode.e);
             node.next=deleteNode.next;
-            if (isChangeCnt) cnt= (int) (Math.random()*10)+1;
-            System.out.println("cnt:"+cnt);
+            if (isChangeCnt) {
+                cnt= (int) (Math.random()*10)+1;
+                System.out.println("cnt:"+cnt);
+            }
             node = node.next;
         }
         System.out.println(node.e);

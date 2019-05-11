@@ -1,5 +1,9 @@
-package com.lvlivejp.datastructure;
+package com.lvlivejp.datastructure.linearlist;
 
+/**
+ * 用双向循环链表实现左右移动26个字母
+ * @param <E>
+ */
 public class CircularDoubleLinkedList<E> {
 
     // 保存链表中第一个节点

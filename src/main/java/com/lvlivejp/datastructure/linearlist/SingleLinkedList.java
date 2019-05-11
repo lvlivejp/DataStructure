@@ -1,6 +1,6 @@
-package com.lvlivejp.datastructure;
+package com.lvlivejp.datastructure.linearlist;
 
-public class DoubleLinkedList<E> {
+public class SingleLinkedList<E> {
 
     // 保存链表中第一个节点
     transient Node<E> first;
@@ -10,17 +10,15 @@ public class DoubleLinkedList<E> {
     private static class Node<E>{
         private E e;
         private Node<E> next;
-        private Node<E> pre;
 
-        public Node(E e, Node<E> pre, Node<E> next) {
+        public Node(E e, Node<E> next) {
             this.e = e;
             this.next = next;
-            this.pre = pre;
         }
     }
 
     public boolean add(E e){
-        Node<E> node = new Node<E>(e,last,null);
+        Node<E> node = new Node<E>(e,null);
         if(first == null){
             first = node;
         }else{
@@ -43,18 +41,18 @@ public class DoubleLinkedList<E> {
             }
             return result;
         }
+
     }
 
     public static void main(String[] args) {
-        DoubleLinkedList<Integer> doubleLinkedList = new DoubleLinkedList<Integer>();
-        doubleLinkedList.add(0);
-        doubleLinkedList.add(1);
-        doubleLinkedList.add(2);
-        doubleLinkedList.add(3);
-        doubleLinkedList.add(4);
-        doubleLinkedList.add(5);
-        doubleLinkedList.add(6);
-        System.out.println(doubleLinkedList);
-
+        SingleLinkedList<Integer> singleLinkedList = new SingleLinkedList<Integer>();
+        singleLinkedList.add(0);
+        singleLinkedList.add(1);
+        singleLinkedList.add(2);
+        singleLinkedList.add(3);
+        singleLinkedList.add(4);
+        singleLinkedList.add(5);
+        singleLinkedList.add(6);
+        System.out.println(singleLinkedList);
     }
 }

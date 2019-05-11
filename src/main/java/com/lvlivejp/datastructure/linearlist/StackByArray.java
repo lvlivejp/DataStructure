@@ -1,4 +1,4 @@
-package com.lvlivejp.datastructure;
+package com.lvlivejp.datastructure.linearlist;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -9,6 +9,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
+/**
+ * 数组实现栈
+ * 1.完成中缀转换后缀
+ * 2.后缀表达式计算
+ * @param <E>
+ */
 public class StackByArray<E> {
 
     private Object[] objects;
